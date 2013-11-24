@@ -1,0 +1,137 @@
+<html ng-app="lungotestApp" lab-boot>
+    <head>
+        <title>YASL</title>
+
+        <meta name="HandheldFriendly" content="True">
+        <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="format-detection" content="telephone=no">
+        <meta http-equiv="cleartype" content="on">
+
+        <link rel="stylesheet" type="text/css" href="bower_components/lungo/lungo.css"/>
+<!--
+        <link rel="stylesheet" type="text/css" href="bower_components/lungo/lungo.icon.css"/>
+        <link rel="stylesheet" type="text/css" href="bower_components/lungo/lungo.theme.css">
+
+        <link rel="stylesheet" type="text/css" href="styles/main.css">
+    -->
+    </head>
+
+    <body ng-controller="MainCtrl">
+        <section id="main" data-transition="slide">
+            <header data-title="YASL">
+                <nav class="on-right">
+                    <a href="add-item" data-icon="tags"></a>
+                 </nav>
+            </header>
+            <article class="active list scroll" ng-controller="ItemsCtrl">
+                <ul>
+                    <li class="anchor theme">
+                        <span>Add item</span>
+                    </li>
+                </ul>
+                <form ng-submit="">
+                    <fieldset>
+                        <input type="text" ng-model="item" size="30" placeholder="New item">
+                    </fieldset>
+                    <fieldset>
+                        <label class="select">
+                            <select class="custom" ng-model="category" ng-options="c for c in categories"></select>
+                        </label>
+                    </fieldset>
+                    
+                    <a href="#" ng-click="addItem()" class="button anchor margin bottom">Add to list</a>
+                </form>
+                <ul ng-show="existing() > 0">
+                    <li class="anchor theme">
+                        <span>Items</span>
+                        <div class="on-right">
+                            <span class="tag count">{{remaining()}} of {{existing()}} remaining</span>
+                        </div>
+                    </li>
+                </ul>
+                <ul ng:repeat="item in newItems">
+                    <li ng-show="item.items.length > 0" class="anchor contrast">
+                        <span>{{item.category}}</span>
+                        <div class="on-right">
+                            <span class="tag count">{{remaining(item.category)}} of {{existing(item.category)}} remaining</span>
+                        </div>
+                    </li>
+                    <li ng:repeat="i in item.items">
+                        <div class="" style="text-align: center;">
+                            <span ng-show="i.done" ng-click="i.done = false" class="icon check"></span>
+                            <span ng-hide="i.done" ng-click="i.done = true" class="icon check-empty"></span>
+                            <span ng-show="i.done" ng-click="i.done = false" class="icon check" style="float: right;"></span>
+                            <span ng-hide="i.done" ng-click="i.done = true" class="icon check-empty" style="float: right;"></span>
+                            <strong ng-class="{ dark: i.done }">{{i.text}}</strong>
+                        </div>
+                        
+                    </li>
+                </ul>
+                <a ng-show="existing() > 0" href="#" ng-click="archive()" class="button anchor margin bottom">Clear shopped items</a>
+            </article>
+        </section>
+
+        <section id="add-item" data-transition="slide">
+            <header data-title="YASL">
+                <nav class="left">
+                    <a href="/" data-icon="list"></a>
+                </nav>
+            </header>
+            <article class="active list scroll" ng-controller="CategoriesCtrl">
+                <ul>
+                    <li class="anchor theme">
+                        <span>Add category</span>
+                    </li>
+                </ul>
+                <form ng-submit="">
+                    <fieldset>
+                        <input type="text" ng-model="item" size="30" placeholder="New category">
+                    </fieldset>
+                    <a href="#" ng-click="addCategory()" class="button anchor margin bottom">Add to list</a>
+                </form>
+                <ul>
+                    <li class="anchor theme" ng-show="categories.length > 0">
+                        <span>Categories</span>
+                    </li>
+                    <li ng-repeat="category in categories">
+                        <div class="" style="text-align: center;">
+                            <span>{{category}} <small style="display: inline;">(
+                                <span href="#" ng-click="remove($index)" class="constrast" style="display: inline;">
+                                    remove
+                                </span>)</small>
+                            </span>
+                            <span ng-click="moveUp($index)" ng-hide="$index === 0" class="icon angle-up" style="float: left;"></span>
+                            <span ng-click="moveUp($index)" ng-show="$index === 0" class="icon" style="float: left;"></span>
+                            <span ng-click="moveDown($index)" ng-hide="categories.length - 1 === $index" class="icon angle-down" style="float: right;"></span>
+                            <span ng-click="moveDown($index)" ng-show="categories.length - 1 === $index" class="icon" style="float: right;"></span>
+                        </div>
+                    </li>
+                </ul>
+            </article>
+        </section>
+
+        <lab-view></lab-view>
+
+        <script type="text/javascript" src="bower_components/quojs/quo.js"></script>
+        <script type="text/javascript" src="bower_components/lungo/lungo.js"></script>
+
+        <script type="text/javascript" src="bower_components/angular/angular.js"></script>
+        <script type="text/javascript" src="bower_components/angular-route/angular-route.js"></script>
+        <script type="text/javascript" src="bower_components/angular-touch/angular-touch.js"></script>
+        <script type="text/javascript" src="bower_components/angular-phonegap-ready/ready.js"></script>
+
+        <script type="text/javascript" src="bower_components/lungo-angular-bridge/dist/lungo-angular-bridge.js"></script>
+
+        <script type="text/javascript" src="phonegap.js"></script>
+        <script type="text/javascript" src="bower_components/lodash/dist/lodash.js"></script>
+
+        <script type="text/javascript" src="scripts/app.js"></script>
+        <script type="text/javascript" src="scripts/controllers/main.js"></script>
+        <script type="text/javascript" src="scripts/controllers/items.js"></script>
+        <script type="text/javascript" src="scripts/controllers/categories.js"></script>
+
+    </body>
+
+</html>

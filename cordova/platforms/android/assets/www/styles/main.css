@@ -1,0 +1,79 @@
+section .list li.category-Baked-goods {
+  -webkit-box-shadow: inset 4px 0 Brown;
+  -moz-box-shadow: inset 4px 0 Brown;
+  -ms-box-shadow: inset 4px 0 Brown;
+  -o-box-shadow: inset 4px 0 Brown;
+  box-shadow: inset 4px 0 Brown;
+}
+
+section .list li.category-Baking-products {
+  -webkit-box-shadow: inset 4px 0 Khaki;
+  -moz-box-shadow: inset 4px 0 Khaki;
+  -ms-box-shadow: inset 4px 0 Khaki;
+  -o-box-shadow: inset 4px 0 Khaki;
+  box-shadow: inset 4px 0 Khaki;
+}
+
+section .list li.category-Beverages {
+  -webkit-box-shadow: inset 4px 0 Pink;
+  -moz-box-shadow: inset 4px 0 Pink;
+  -ms-box-shadow: inset 4px 0 Pink;
+  -o-box-shadow: inset 4px 0 Pink;
+  box-shadow: inset 4px 0 Pink;
+}
+
+section .list li.category-Canned-food {
+  -webkit-box-shadow: inset 4px 0 SlateGray;
+  -moz-box-shadow: inset 4px 0 SlateGray;
+  -ms-box-shadow: inset 4px 0 SlateGray;
+  -o-box-shadow: inset 4px 0 SlateGray;
+  box-shadow: inset 4px 0 SlateGray;
+}
+
+section .list li.category-Coffee-and-tea {
+  -webkit-box-shadow: inset 4px 0 Chocolate;
+  -moz-box-shadow: inset 4px 0 Chocolate;
+  -ms-box-shadow: inset 4px 0 Chocolate;
+  -o-box-shadow: inset 4px 0 Chocolate;
+  box-shadow: inset 4px 0 Chocolate;
+}
+
+section .list li.category-Dairy-products {
+  -webkit-box-shadow: inset 4px 0 FloralWhite;
+  -moz-box-shadow: inset 4px 0 FloralWhite;
+  -ms-box-shadow: inset 4px 0 FloralWhite;
+  -o-box-shadow: inset 4px 0 FloralWhite;
+  box-shadow: inset 4px 0 FloralWhite;
+}
+
+section .list li.category-Fresh-meat {
+  -webkit-box-shadow: inset 4px 0 Maroon;
+  -moz-box-shadow: inset 4px 0 Maroon;
+  -ms-box-shadow: inset 4px 0 Maroon;
+  -o-box-shadow: inset 4px 0 Maroon;
+  box-shadow: inset 4px 0 Maroon;
+}
+
+section .list li.category-Fruits-and-vegetables {
+  -webkit-box-shadow: inset 4px 0 GreenYellow;
+  -moz-box-shadow: inset 4px 0 GreenYellow;
+  -ms-box-shadow: inset 4px 0 GreenYellow;
+  -o-box-shadow: inset 4px 0 GreenYellow;
+  box-shadow: inset 4px 0 GreenYellow;
+}
+
+section .list li.category-Packed-meat {
+  -webkit-box-shadow: inset 4px 0 MediumBlue;
+  -moz-box-shadow: inset 4px 0 MediumBlue;
+  -ms-box-shadow: inset 4px 0 MediumBlue;
+  -o-box-shadow: inset 4px 0 MediumBlue;
+  box-shadow: inset 4px 0 MediumBlue;
+}
+
+section .list li.category-Pharmacy-products {
+  -webkit-box-shadow: inset 4px 0 Red;
+  -moz-box-shadow: inset 4px 0 Red;
+  -ms-box-shadow: inset 4px 0 Red;
+  -o-box-shadow: inset 4px 0 Red;
+  box-shadow: inset 4px 0 Red;
+}

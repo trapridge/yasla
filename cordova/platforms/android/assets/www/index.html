@@ -1,0 +1,112 @@
+<html ng-app="lungotestApp" lab-boot>
+    <head>
+        <title>Ultimate Shopping List</title>
+
+        <meta name="HandheldFriendly" content="True">
+        <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="format-detection" content="telephone=no">
+        <meta http-equiv="cleartype" content="on">
+
+        <link rel="stylesheet" type="text/css" href="bower_components/lungo/lungo.css"/>
+        <link rel="stylesheet" type="text/css" href="bower_components/lungo/lungo.icon.css"/>
+        <link rel="stylesheet" type="text/css" href="bower_components/lungo/lungo.theme.css">
+
+        <link rel="stylesheet" type="text/css" href="styles/main.css">
+    </head>
+
+    <body>
+
+        <section id="main" data-transition="slide">
+
+            <header data-title="Shopping list">
+                <nav class="right">
+                    <a href="add-todo" data-icon="plus"></a>
+                 </nav>
+            </header>
+
+            <article class="active list scroll" ng-controller="TodoCtrl" id="main">
+                 <span class="remainingLabel">{{remaining()}} of {{todos.length}} remaining</span>
+                [ <a href="" ng-click="archive()">archive</a> ]
+                <ul>
+                    <li ng-repeat="todo in todos" class="category-{{dewhitespace(todo.category)}}   ">
+                        <div class="on-right">{{todo.category}}</div>
+
+                        <span ng-show="todo.done" ng-click="todo.done = false" class="icon check"></span>
+                        <span ng-hide="todo.done" ng-click="todo.done = true" class="icon check-empty"></span>
+
+                        <strong class="done-{{todo.done}}">{{todo.text}}</strong>
+                        <!--<small>{{todo.category}}</small>-->
+                    </li>
+  
+                </ul>
+
+                <img id="photo" src="" />
+                <button ng-click="takePhoto()">Photo</button>
+
+            </article>
+
+        </section>
+
+        <section id="add-todo" data-transition="slide" ng-controller="TodoAddCtrl">
+
+            <header data-title="Add item">
+                <nav class="left">
+                    <a href="/" data-icon="home"></a>
+                </nav>
+            </header>
+
+            <article class="active indented">
+                <form ng-submit="addTodo()">
+                    <fieldset>
+                        <input type="text" ng-model="item"  size="30" placeholder="Item">
+                    </fieldset>
+                    <fieldset>
+                        <label class="select">
+                            <select class="custom" ng-model="category">
+                                <option value="" disabled selected>Category</option>
+                                <option value="Baked goods">Baked goods</option>
+                                <option value="Baking products">Baking products</option>
+                                <option value="Beverages">Beverages</option>
+                                <option value="Canned food">Canned food</option>
+                                <option value="Coffee and tea">Coffee and tea</option>
+                                <option value="Dairy products">Dairy products</option>
+                                <option value="Fresh meat">Fresh meat</option>
+                                <option value="Fruits and vegetables">Fruits and vegetables</option>
+                                <option value="Packed meat">Packed meat</option>
+                                <option value="Pharmacy products">Pharmacy products</option>
+                            </select>
+                        </label>
+                    </fieldset>
+                    
+                    <input class="button right" type="submit" value="add">
+                </form>
+            </article>
+
+        </section>
+
+
+        <lab-view></lab-view>
+
+        <script type="text/javascript" src="phonegap.js"></script>
+
+        <script type="text/javascript" src="bower_components/quojs/quo.js"></script>
+        <script type="text/javascript" src="bower_components/lungo/lungo.js"></script>
+
+        <script type="text/javascript" src="bower_components/angular/angular.js"></script>
+        <script type="text/javascript" src="bower_components/angular-resource/angular-resource.js"></script>
+        <script type="text/javascript" src="bower_components/angular-route/angular-route.js"></script>
+        <script type="text/javascript" src="bower_components/angular-touch/angular-touch.js"></script>
+        <script type="text/javascript" src="bower_components/angular-phonegap-ready/ready.js"></script>
+
+        <script type="text/javascript" src="bower_components/lungo-angular-bridge/dist/lungo-angular-bridge.js"></script>
+
+        <script type="text/javascript" src="bower_components/lodash/dist/lodash.js"></script>
+
+        <script type="text/javascript" src="scripts/app.js"></script>
+        <script type="text/javascript" src="scripts/controllers/main.js"></script>
+
+    </body>
+
+</html>
